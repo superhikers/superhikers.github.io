@@ -1,0 +1,1504 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类, welcome">
+    <meta name="description" content="地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类1、坐标系种类简介
+WGS84坐标系即地球坐标系，国际上通用的坐标系。设备一般包含GPS芯片或者北斗芯片获取的经纬度为WGS84地理坐标系。谷歌地图采用的是WGS84地理坐">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类 | welcome</title>
+    <link rel="icon" type="image/png" href="/hikers/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/hikers/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/my.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/hikers/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/hikers/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/hikers/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/hikers/" class="waves-effect waves-light">
+                    
+                    <img src="/hikers/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">welcome</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags aa" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hikers/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hikers/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">welcome</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags aa"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hikers/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/superhikers" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/superhikers" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hikers/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/hikers/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/hikers/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/">
+                                <span class="chip bg-color">坐标系</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/hikers/categories/java-tool/" class="post-category">
+                                java tool
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-12
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/hikers/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类"><a href="#地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类" class="headerlink" title="地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类"></a>地球坐标系、火星坐标系等相互转换、判断点是否在区域内（经纬度）工具类</h2><h4 id="1、坐标系种类简介"><a href="#1、坐标系种类简介" class="headerlink" title="1、坐标系种类简介"></a>1、坐标系种类简介</h4><ol>
+<li><p>WGS84坐标系<br>即地球坐标系，国际上通用的坐标系。<br>设备一般包含GPS芯片或者北斗芯片获取的经纬度为WGS84地理坐标系。谷歌地图采用的是WGS84地理坐标系（中国范围除外,谷歌中国地图采用的是GCJ02地理坐标系。)</p>
+</li>
+<li><p>GCJ02坐标系<br>即火星坐标系，WGS84坐标系经加密后的坐标系。<br>出于国家安全考虑，国内所有导航电子地图必须使用国家测绘局制定的加密坐标系统，即将一个真实的经纬度坐标加密成一个不正确的经纬度坐标。</p>
+</li>
+<li><p>BD09坐标系<br>即百度坐标系，GCJ02坐标系经加密后的坐标系。搜狗坐标系、图吧坐标系等，估计也是在GCJ02基础上加密而成的。</p>
+</li>
+<li><p>各主流地图API采用的坐标系<br>高德MapABC地图API 火星坐标<br>腾讯搜搜地图API 火星坐标<br>阿里云地图API 火星坐标<br>灵图51ditu地图API 火星坐标</p>
+<p>百度地图API 百度坐标<br>搜狐搜狗地图API 搜狗坐标<br>图吧MapBar地图API 图吧坐标</p>
+</li>
+</ol>
+<h4 id="2、坐标系转换、判断坐标点是否在区域内-工具类"><a href="#2、坐标系转换、判断坐标点是否在区域内-工具类" class="headerlink" title="2、坐标系转换、判断坐标点是否在区域内 工具类"></a>2、坐标系转换、判断坐标点是否在区域内 工具类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>fastjson<span class="token punctuation">.</span></span><span class="token class-name">JSON</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>fastjson<span class="token punctuation">.</span></span><span class="token class-name">JSONArray</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>geom<span class="token punctuation">.</span></span><span class="token class-name">Path2D</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 地球坐标系、火星坐标系等相互转换、判断点是否在区域内
+ *
+ * @Author: pdx
+ * @Date: 2023/2/24 9:04
+ * @Version 1.0
+ */</span>
+
+<span class="token comment">/**
+ * 地球坐标系 (WGS-84) 相互转火星坐标系 (GCJ-02) 的转换算法
+ * &lt;p&gt;
+ * 1.各坐标系简介
+ * WGS84坐标系
+ * 即地球坐标系，国际上通用的坐标系。
+ * 设备一般包含GPS芯片或者北斗芯片获取的经纬度为WGS84地理坐标系。谷歌地图采用的是WGS84地理坐标系（中国范围除外,谷歌中国地图采用的是GCJ02地理坐标系。)
+ * &lt;p&gt;
+ * GCJ02坐标系
+ * 即火星坐标系，WGS84坐标系经加密后的坐标系。
+ * 出于国家安全考虑，国内所有导航电子地图必须使用国家测绘局制定的加密坐标系统，即将一个真实的经纬度坐标加密成一个不正确的经纬度坐标。
+ * &lt;p&gt;
+ * BD09坐标系
+ * 即百度坐标系，GCJ02坐标系经加密后的坐标系。搜狗坐标系、图吧坐标系等，估计也是在GCJ02基础上加密而成的。
+ * &lt;p&gt;
+ * 各主流地图API采用的坐标系
+ * 高德MapABC地图API 火星坐标
+ * 腾讯搜搜地图API 火星坐标
+ * 阿里云地图API 火星坐标
+ * 灵图51ditu地图API 火星坐标
+ * &lt;p&gt;
+ * 百度地图API 百度坐标
+ * 搜狐搜狗地图API 搜狗坐标
+ * 图吧MapBar地图API 图吧坐标
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CoordinatesPointUtil</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 圆周率
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">double</span> pi <span class="token operator">=</span> <span class="token number">3.14159265358979324D</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * WGS 长轴半径
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">double</span> a <span class="token operator">=</span> <span class="token number">6378245.0D</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * WGS 偏心率的平方
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">double</span> ee <span class="token operator">=</span> <span class="token number">0.00669342162296594323D</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">double</span> x_pi <span class="token operator">=</span> <span class="token number">3.14159265358979324</span> <span class="token operator">*</span> <span class="token number">3000.0</span> <span class="token operator">/</span> <span class="token number">180.0</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment">/**
+     * 84-&gt;gcj02
+     * 地球坐标系 -&gt; 火星坐标系
+     *
+     * @param lon 经度
+     * @param lat 纬度
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">transform</span><span class="token punctuation">(</span><span class="token keyword">double</span> lon<span class="token punctuation">,</span> <span class="token keyword">double</span> lat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> localHashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">outofChina</span><span class="token punctuation">(</span>lat<span class="token punctuation">,</span> lon<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>lon<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>lat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> localHashMap<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">double</span> dLat <span class="token operator">=</span> <span class="token function">transformLat</span><span class="token punctuation">(</span>lon <span class="token operator">-</span> <span class="token number">105.0</span><span class="token punctuation">,</span> lat <span class="token operator">-</span> <span class="token number">35.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> dLon <span class="token operator">=</span> <span class="token function">transformLon</span><span class="token punctuation">(</span>lon <span class="token operator">-</span> <span class="token number">105.0</span><span class="token punctuation">,</span> lat <span class="token operator">-</span> <span class="token number">35.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> radLat <span class="token operator">=</span> lat <span class="token operator">/</span> <span class="token number">180.0</span> <span class="token operator">*</span> pi<span class="token punctuation">;</span>
+        <span class="token keyword">double</span> magic <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>radLat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        magic <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> ee <span class="token operator">*</span> magic <span class="token operator">*</span> magic<span class="token punctuation">;</span>
+        <span class="token keyword">double</span> sqrtMagic <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>magic<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dLat <span class="token operator">=</span> <span class="token punctuation">(</span>dLat <span class="token operator">*</span> <span class="token number">180.0</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> ee<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>magic <span class="token operator">*</span> sqrtMagic<span class="token punctuation">)</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dLon <span class="token operator">=</span> <span class="token punctuation">(</span>dLon <span class="token operator">*</span> <span class="token number">180.0</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>a <span class="token operator">/</span> sqrtMagic <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>radLat<span class="token punctuation">)</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> mgLat <span class="token operator">=</span> lat <span class="token operator">+</span> dLat<span class="token punctuation">;</span>
+        <span class="token keyword">double</span> mgLon <span class="token operator">=</span> lon <span class="token operator">+</span> dLon<span class="token punctuation">;</span>
+        localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">,</span> mgLon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">,</span> mgLat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> localHashMap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// gcj02-84</span>
+
+    <span class="token comment">/**
+     * gcj02 -&gt; 84
+     * 火星坐标系 -&gt; 地球坐标系
+     *
+     * @param lon 经度
+     * @param lat 纬度
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">gcj2wgs</span><span class="token punctuation">(</span><span class="token keyword">double</span> lon<span class="token punctuation">,</span> <span class="token keyword">double</span> lat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> localHashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> lontitude <span class="token operator">=</span> lon
+                <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Double</span><span class="token punctuation">)</span> <span class="token function">transform</span><span class="token punctuation">(</span>lon<span class="token punctuation">,</span> lat<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">doubleValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> lon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> latitude <span class="token operator">=</span> <span class="token punctuation">(</span>lat <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Double</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">transform</span><span class="token punctuation">(</span>lon<span class="token punctuation">,</span> lat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">doubleValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> lat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">,</span> lontitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        localHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">,</span> latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> localHashMap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 火星坐标转换为百度坐标
+     *
+     * @param gg_lon 经度
+     * @param gg_lat 纬度
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">bd_encrypt</span><span class="token punctuation">(</span><span class="token keyword">double</span> gg_lon<span class="token punctuation">,</span> <span class="token keyword">double</span> gg_lat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> bdlocalHashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> x <span class="token operator">=</span> gg_lon<span class="token punctuation">,</span> y <span class="token operator">=</span> gg_lat<span class="token punctuation">;</span>
+        <span class="token keyword">double</span> z <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>x <span class="token operator">*</span> x <span class="token operator">+</span> y <span class="token operator">*</span> y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.00002</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">*</span> x_pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> theta <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">atan2</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.000003</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>x <span class="token operator">*</span> x_pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> bd_lon <span class="token operator">=</span> z <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>theta<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.0065</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> bd_lat <span class="token operator">=</span> z <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>theta<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.006</span><span class="token punctuation">;</span>
+        bdlocalHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">,</span> bd_lon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bdlocalHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">,</span> bd_lat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> bdlocalHashMap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 84转百度
+     * 地球转百度
+     *
+     * @param longitude 经度
+     * @param latitude  纬度
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">wgs84_bd09</span><span class="token punctuation">(</span><span class="token keyword">double</span> longitude<span class="token punctuation">,</span> <span class="token keyword">double</span> latitude<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//1,将84转国测局gcj-02</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> mapForGCJ <span class="token operator">=</span> <span class="token function">transform</span><span class="token punctuation">(</span>longitude<span class="token punctuation">,</span> latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Double</span> lonGCJ <span class="token operator">=</span> mapForGCJ<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Double</span> latGCJ <span class="token operator">=</span> mapForGCJ<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2.将gcj-02转百度</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> mapForBD09 <span class="token operator">=</span> <span class="token function">bd_encrypt</span><span class="token punctuation">(</span>latGCJ<span class="token punctuation">,</span> lonGCJ<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> mapForBD09<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 百度转 火星 gcj02
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">bd09togcj02</span><span class="token punctuation">(</span><span class="token keyword">double</span> bd_lon<span class="token punctuation">,</span> <span class="token keyword">double</span> bd_lat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> bdtogcmap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> x <span class="token operator">=</span> bd_lon <span class="token operator">-</span> <span class="token number">0.0065</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> y <span class="token operator">=</span> bd_lat <span class="token operator">-</span> <span class="token number">0.006</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> z <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>x <span class="token operator">*</span> x <span class="token operator">+</span> y <span class="token operator">*</span> y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.00002</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">*</span> x_pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> theta <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">atan2</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.000003</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>x <span class="token operator">*</span> x_pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> gg_lng <span class="token operator">=</span> z <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>theta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> gg_lat <span class="token operator">=</span> z <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>theta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bdtogcmap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">,</span> gg_lng<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bdtogcmap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">,</span> gg_lat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> bdtogcmap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 百度转 地球84
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">bd09to84</span><span class="token punctuation">(</span><span class="token keyword">double</span> bd_lon<span class="token punctuation">,</span> <span class="token keyword">double</span> bd_lat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> bdtogcmap <span class="token operator">=</span> <span class="token function">bd09togcj02</span><span class="token punctuation">(</span>bd_lon<span class="token punctuation">,</span> bd_lat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Double</span> lon <span class="token operator">=</span> bdtogcmap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Double</span> lat <span class="token operator">=</span> bdtogcmap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lat"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> gcto84map <span class="token operator">=</span> <span class="token function">gcj2wgs</span><span class="token punctuation">(</span>lon<span class="token punctuation">,</span> lat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> gcto84map<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 判断点是否在区域内
+     *
+     * @param polygon   区域经纬度json字符串
+     * @param longitude 经度
+     * @param latitude  纬度
+     * @return 返回true跟false
+     */</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isPoint</span><span class="token punctuation">(</span><span class="token class-name">String</span> polygon<span class="token punctuation">,</span> <span class="token keyword">double</span> longitude<span class="token punctuation">,</span> <span class="token keyword">double</span> latitude<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">JSONArray</span> jsonArray <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parseArray</span><span class="token punctuation">(</span>polygon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//将json转换成对象</span>
+
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ScopeRequest</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parseArray</span><span class="token punctuation">(</span>jsonArray<span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">ScopeRequest</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Path2D</span> path2D <span class="token operator">=</span> <span class="token function">create</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//true如果指定的坐标在Shape边界内; 否则为false 。</span>
+
+        <span class="token keyword">return</span> path2D<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>longitude<span class="token punctuation">,</span> latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 使用Path2D创建一个多边形
+     *
+     * @param polygon 经纬度 集合
+     * @return 返回Path2D.Double
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Path2D<span class="token punctuation">.</span>Double</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ScopeRequest</span><span class="token punctuation">&gt;</span></span> polygon<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment">//创建path2D对象</span>
+
+        <span class="token class-name">Path2D<span class="token punctuation">.</span>Double</span> generalPath <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Path2D<span class="token punctuation">.</span>Double</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//获取第一个起点经纬度的坐标</span>
+
+        <span class="token class-name">ScopeRequest</span> first <span class="token operator">=</span> polygon<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//通过移动到以double精度指定的指定坐标，把第一个起点添加到路径中</span>
+
+        generalPath<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span><span class="token function">getLongitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> first<span class="token punctuation">.</span><span class="token function">getLatitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//把集合中的第一个点删除防止重复添加</span>
+
+        polygon<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//循环集合里剩下的所有经纬度坐标</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">ScopeRequest</span> d <span class="token operator">:</span> polygon<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            <span class="token comment">//通过从当前坐标绘制直线到以double精度指定的新指定坐标，将路径添加到路径。</span>
+
+            <span class="token comment">//从第一个点开始，不断往后绘制经纬度点</span>
+
+            generalPath<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">getLongitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token punctuation">.</span><span class="token function">getLatitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 最后要多边形进行封闭，起点及终点</span>
+
+        generalPath<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span><span class="token function">getLongitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> first<span class="token punctuation">.</span><span class="token function">getLatitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//将直线绘制回最后一个 moveTo的坐标来关闭当前子路径。</span>
+
+        generalPath<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> generalPath<span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 中国坐标内
+     *
+     * @param lat 纬度
+     * @param lon 经度
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">outofChina</span><span class="token punctuation">(</span><span class="token keyword">double</span> lat<span class="token punctuation">,</span> <span class="token keyword">double</span> lon<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lon <span class="token operator">&lt;</span> <span class="token number">72.004</span> <span class="token operator">||</span> lon <span class="token operator">&gt;</span> <span class="token number">137.8347</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lat <span class="token operator">&lt;</span> <span class="token number">0.8293</span> <span class="token operator">||</span> lat <span class="token operator">&gt;</span> <span class="token number">55.8271</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">transformLat</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span> <span class="token keyword">double</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> ret <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100.0</span> <span class="token operator">+</span> <span class="token number">2.0</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">3.0</span> <span class="token operator">*</span> y <span class="token operator">+</span> <span class="token number">0.2</span> <span class="token operator">*</span> y <span class="token operator">*</span> y <span class="token operator">+</span> <span class="token number">0.1</span> <span class="token operator">*</span> x <span class="token operator">*</span> y
+                <span class="token operator">+</span> <span class="token number">0.2</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token number">6.0</span> <span class="token operator">*</span> x <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token number">2.0</span> <span class="token operator">*</span> x <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">40.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">/</span> <span class="token number">3.0</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">160.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">/</span> <span class="token number">12.0</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">320</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>y <span class="token operator">*</span> pi <span class="token operator">/</span> <span class="token number">30.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">transformLon</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span> <span class="token keyword">double</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> ret <span class="token operator">=</span> <span class="token number">300.0</span> <span class="token operator">+</span> x <span class="token operator">+</span> <span class="token number">2.0</span> <span class="token operator">*</span> y <span class="token operator">+</span> <span class="token number">0.1</span> <span class="token operator">*</span> x <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">0.1</span> <span class="token operator">*</span> x <span class="token operator">*</span> y <span class="token operator">+</span> <span class="token number">0.1</span>
+                <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token number">6.0</span> <span class="token operator">*</span> x <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token number">2.0</span> <span class="token operator">*</span> x <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">20.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>x <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">40.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token number">3.0</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        ret <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token number">150.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token number">12.0</span> <span class="token operator">*</span> pi<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">300.0</span> <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token number">30.0</span>
+                <span class="token operator">*</span> pi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span> <span class="token operator">/</span> <span class="token number">3.0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>实体类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeRequest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Double</span> longitude<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Double</span> latitude<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ScopeRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">ScopeRequest</span><span class="token punctuation">(</span><span class="token class-name">Double</span> longitude<span class="token punctuation">,</span> <span class="token class-name">Double</span> latitude<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>longitude <span class="token operator">=</span> longitude<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>latitude <span class="token operator">=</span> latitude<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">Double</span> longitude <span class="token operator">=</span> <span class="token number">113.73833333333333</span><span class="token punctuation">;</span>
+        <span class="token class-name">Double</span> latitude <span class="token operator">=</span> <span class="token number">22.856666666666666</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//判断坐标是否在指定范围内</span>
+        <span class="token comment">//区域指标</span>
+        <span class="token class-name">String</span> area <span class="token operator">=</span> <span class="token string">"[{\"longitude\":113.65052685099445,\"latitude\":22.824908507785644},{\"longitude\":113.64822626450176,\"latitude\":22.825632039022434},{\"longitude\":113.6399128216911,\"latitude\":22.828378879748556},{\"longitude\":113.63436153664783,\"latitude\":22.831287250224182},{\"longitude\":113.62905789669807,\"latitude\":22.836129327366223},{\"longitude\":113.62624769320206,\"latitude\":22.833767617021206},{\"longitude\":113.62267410116758,\"latitude\":22.825636897577045},{\"longitude\":113.61849358338274,\"latitude\":22.820459394024212},{\"longitude\":113.61170820364872,\"latitude\":22.81444546219262},{\"longitude\":113.61023296850541,\"latitude\":22.813297131119313},{\"longitude\":113.60859390988011,\"latitude\":22.811893708506787},{\"longitude\":113.60552826677758,\"latitude\":22.809416442845645},{\"longitude\":113.60607541430429,\"latitude\":22.808786194249834},{\"longitude\":113.60650800900952,\"latitude\":22.808211180848325},{\"longitude\":113.60734124334928,\"latitude\":22.80722299621359},{\"longitude\":113.6103369623189,\"latitude\":22.803566715667042},{\"longitude\":113.64682541465535,\"latitude\":22.75743868593322},{\"longitude\":113.65825492099916,\"latitude\":22.741973885420492},{\"longitude\":113.67124736855725,\"latitude\":22.72594653992477},{\"longitude\":113.68077546696753,\"latitude\":22.717980884824186},{\"longitude\":113.70999444238491,\"latitude\":22.726834382110745},{\"longitude\":113.74515164674901,\"latitude\":22.729278187166013},{\"longitude\":113.74880700731542,\"latitude\":22.73431125977091},{\"longitude\":113.75458539183593,\"latitude\":22.74008256841958},{\"longitude\":113.76528919525289,\"latitude\":22.747602720473147},{\"longitude\":113.76663725001177,\"latitude\":22.750796930182933},{\"longitude\":113.76288734236499,\"latitude\":22.753108710176157},{\"longitude\":113.75782468997326,\"latitude\":22.74867996266583},{\"longitude\":113.74971607616936,\"latitude\":22.757151590356145},{\"longitude\":113.750600834551,\"latitude\":22.759037096438643},{\"longitude\":113.74099704115042,\"latitude\":22.761293726841227},{\"longitude\":113.73325408167987,\"latitude\":22.765064845081536},{\"longitude\":113.72826272961547,\"latitude\":22.76570054906868},{\"longitude\":113.72296538647286,\"latitude\":22.769050441372162},{\"longitude\":113.71939633949256,\"latitude\":22.777781945014027},{\"longitude\":113.72022682667533,\"latitude\":22.775879453838286},{\"longitude\":113.71931147732288,\"latitude\":22.779681081681755},{\"longitude\":113.71437131534617,\"latitude\":22.7867011908682},{\"longitude\":113.70919178027418,\"latitude\":22.78877673250503},{\"longitude\":113.70602977734606,\"latitude\":22.791815078563502},{\"longitude\":113.70333053581464,\"latitude\":22.796790345308064},{\"longitude\":113.69767490739432,\"latitude\":22.80131284144102},{\"longitude\":113.70221068374987,\"latitude\":22.805504603992116},{\"longitude\":113.70020631731316,\"latitude\":22.810803734698652},{\"longitude\":113.7065022894591,\"latitude\":22.810239593076517},{\"longitude\":113.7069975799168,\"latitude\":22.806342887679417},{\"longitude\":113.71030467414265,\"latitude\":22.804881724080417},{\"longitude\":113.71542722281255,\"latitude\":22.805137453931366},{\"longitude\":113.71630227187349,\"latitude\":22.807419030643644},{\"longitude\":113.72116408395344,\"latitude\":22.805420677543058},{\"longitude\":113.72632814010831,\"latitude\":22.806991341644956},{\"longitude\":113.72727458299788,\"latitude\":22.810463838914416},{\"longitude\":113.7244737772436,\"latitude\":22.81388034028834},{\"longitude\":113.72920863045192,\"latitude\":22.814642248968315},{\"longitude\":113.73411011556037,\"latitude\":22.811084814139633},{\"longitude\":113.73601745531245,\"latitude\":22.805872591111154},{\"longitude\":113.74346235660745,\"latitude\":22.807673875160898},{\"longitude\":113.74823545804544,\"latitude\":22.809449427719752},{\"longitude\":113.74892951397094,\"latitude\":22.815132336016408},{\"longitude\":113.75619359061737,\"latitude\":22.824122242787382},{\"longitude\":113.75795391011285,\"latitude\":22.82193420516432},{\"longitude\":113.76357739774382,\"latitude\":22.82163055337918},{\"longitude\":113.76417143565757,\"latitude\":22.82410102899934},{\"longitude\":113.76797854563756,\"latitude\":22.823145212921872},{\"longitude\":113.77126436385585,\"latitude\":22.82568209098946},{\"longitude\":113.77452356590061,\"latitude\":22.832758785166046},{\"longitude\":113.78462710136652,\"latitude\":22.83595616626837},{\"longitude\":113.78443235927783,\"latitude\":22.838100022544666},{\"longitude\":113.7889734728652,\"latitude\":22.838424015560403},{\"longitude\":113.79432050990738,\"latitude\":22.843153430070345},{\"longitude\":113.79708798233801,\"latitude\":22.841214376946425},{\"longitude\":113.79861272420509,\"latitude\":22.8433198572514},{\"longitude\":113.80316636576548,\"latitude\":22.845559693832286},{\"longitude\":113.80668843751758,\"latitude\":22.849121956562612},{\"longitude\":113.80229163247365,\"latitude\":22.858728423098285},{\"longitude\":113.79997674217155,\"latitude\":22.858377966133332},{\"longitude\":113.79178715051151,\"latitude\":22.86128085444187},{\"longitude\":113.7844243413804,\"latitude\":22.865623245056952},{\"longitude\":113.78018269150832,\"latitude\":22.873340907123577},{\"longitude\":113.7732358228895,\"latitude\":22.87530659748961},{\"longitude\":113.77195465643565,\"latitude\":22.88149455602678},{\"longitude\":113.77021731594355,\"latitude\":22.88335211694772},{\"longitude\":113.76933967082468,\"latitude\":22.888039355072976},{\"longitude\":113.76863224172449,\"latitude\":22.88629615718367},{\"longitude\":113.7607629470999,\"latitude\":22.882644205114726},{\"longitude\":113.76011987158208,\"latitude\":22.882382719024008},{\"longitude\":113.75701504616109,\"latitude\":22.88219862477962},{\"longitude\":113.7561130750375,\"latitude\":22.881958604389013},{\"longitude\":113.75368922065934,\"latitude\":22.881706349829415},{\"longitude\":113.75151270892913,\"latitude\":22.88053618976846},{\"longitude\":113.75013375026039,\"latitude\":22.877429003852622},{\"longitude\":113.7483828609701,\"latitude\":22.877070388817174},{\"longitude\":113.74835316962547,\"latitude\":22.877060317707},{\"longitude\":113.74748444375044,\"latitude\":22.876595770107656},{\"longitude\":113.74718684314381,\"latitude\":22.875935086370983},{\"longitude\":113.74659395283433,\"latitude\":22.875390588612447},{\"longitude\":113.7435562206671,\"latitude\":22.873361164863233},{\"longitude\":113.73726288038131,\"latitude\":22.87337002472378},{\"longitude\":113.73054478636325,\"latitude\":22.872310717168144},{\"longitude\":113.72765235615658,\"latitude\":22.873782264984413},{\"longitude\":113.72127603124866,\"latitude\":22.869658961753093},{\"longitude\":113.720753517223,\"latitude\":22.866053248987214},{\"longitude\":113.7175565395653,\"latitude\":22.86519451974749},{\"longitude\":113.71751196019294,\"latitude\":22.86691008829194},{\"longitude\":113.72163262968266,\"latitude\":22.870352246603602},{\"longitude\":113.71963919248458,\"latitude\":22.872499653587564},{\"longitude\":113.72350584035668,\"latitude\":22.87402977595593},{\"longitude\":113.72562760295729,\"latitude\":22.876307375631374},{\"longitude\":113.72514222982332,\"latitude\":22.879568712481728},{\"longitude\":113.72618458919005,\"latitude\":22.881755081656475},{\"longitude\":113.72319930045549,\"latitude\":22.881014022484408},{\"longitude\":113.72250430680228,\"latitude\":22.882003730420305},{\"longitude\":113.72247157532843,\"latitude\":22.882025989820818},{\"longitude\":113.72067163773507,\"latitude\":22.88235111316067},{\"longitude\":113.71698915656086,\"latitude\":22.881341694090903},{\"longitude\":113.7139312819414,\"latitude\":22.880050832295467},{\"longitude\":113.7129685467066,\"latitude\":22.879464018740407},{\"longitude\":113.71189166124292,\"latitude\":22.879033835846997},{\"longitude\":113.71147070720534,\"latitude\":22.879049166613356},{\"longitude\":113.7084584772929,\"latitude\":22.88054059116558},{\"longitude\":113.7069555786569,\"latitude\":22.879841877320022},{\"longitude\":113.7040370354356,\"latitude\":22.878636885007722},{\"longitude\":113.7035370837592,\"latitude\":22.87996078003101},{\"longitude\":113.70089455992375,\"latitude\":22.881480153053417},{\"longitude\":113.69894148955734,\"latitude\":22.881723210971188},{\"longitude\":113.69514856033632,\"latitude\":22.881089807647474},{\"longitude\":113.69032239425738,\"latitude\":22.88100403451165},{\"longitude\":113.68921936200641,\"latitude\":22.880442644743372},{\"longitude\":113.68864242766834,\"latitude\":22.8802094098441},{\"longitude\":113.68030193530545,\"latitude\":22.877561381164014},{\"longitude\":113.67666553694984,\"latitude\":22.87347738229181},{\"longitude\":113.66952334413088,\"latitude\":22.871252574688924},{\"longitude\":113.66650103295731,\"latitude\":22.869191048370737},{\"longitude\":113.6646295746507,\"latitude\":22.870690917897093},{\"longitude\":113.65977442088264,\"latitude\":22.868160189734795},{\"longitude\":113.65302379554976,\"latitude\":22.862724062702853},{\"longitude\":113.65020156053536,\"latitude\":22.861883535544795},{\"longitude\":113.65063013937888,\"latitude\":22.860886732643966},{\"longitude\":113.65063687187568,\"latitude\":22.859881865554826},{\"longitude\":113.64789060847237,\"latitude\":22.858722154937706},{\"longitude\":113.6450396121887,\"latitude\":22.855627431028722},{\"longitude\":113.64594409174539,\"latitude\":22.85403127492708},{\"longitude\":113.64686949816641,\"latitude\":22.852271360786233},{\"longitude\":113.64772936891379,\"latitude\":22.849684264752113},{\"longitude\":113.6478426236727,\"latitude\":22.847606197644783},{\"longitude\":113.64809338050058,\"latitude\":22.84204754568185},{\"longitude\":113.64892440468782,\"latitude\":22.839447861568377},{\"longitude\":113.65002297762257,\"latitude\":22.83709937475891},{\"longitude\":113.65100680212483,\"latitude\":22.8339922280382},{\"longitude\":113.64983257690167,\"latitude\":22.83001438108181},{\"longitude\":113.64864259124752,\"latitude\":22.830822313976626},{\"longitude\":113.64888568262346,\"latitude\":22.82931645042493},{\"longitude\":113.64904612048065,\"latitude\":22.825430893847116},{\"longitude\":113.65052685099445,\"latitude\":22.824908507785644}]"</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> point <span class="token operator">=</span> <span class="token class-name">CoordinatesPointUtil</span><span class="token punctuation">.</span><span class="token function">isPoint</span><span class="token punctuation">(</span>area<span class="token punctuation">,</span> longitude<span class="token punctuation">,</span> latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"坐标是否在指定范围内："</span> <span class="token operator">+</span> point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        坐标系转换</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> stringDoubleMap <span class="token operator">=</span> <span class="token class-name">CoordinatesPointUtil</span><span class="token punctuation">.</span><span class="token function">gcj2wgs</span><span class="token punctuation">(</span>longitude<span class="token punctuation">,</span> latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"转换后坐标系："</span> <span class="token operator">+</span> stringDoubleMap<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ThinkWon/article/details/101392187">https://blog.csdn.net/ThinkWon/article/details/101392187</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363528840">https://zhuanlan.zhihu.com/p/363528840</a></p>
+<p><a target="_blank" rel="noopener" href="https://nowjava.com/docs/java-api-11/java.desktop/java/awt/geom/Path2D.html">https://nowjava.com/docs/java-api-11/java.desktop/java/awt/geom/Path2D.html</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/hikers/about" rel="external nofollow noreferrer">link</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://hikers.gitee.io/hikers/hikers/2023/04/12/di-qiu-zuo-biao-xi-huo-xing-zuo-biao-xi-deng-xiang-hu-zhuan-huan-pan-duan-dian-shi-fou-zai-qu-yu-nei-jing-wei-du-gong-ju-lei/">http://hikers.gitee.io/hikers/hikers/2023/04/12/di-qiu-zuo-biao-xi-huo-xing-zuo-biao-xi-deng-xiang-hu-zhuan-huan-pan-duan-dian-shi-fou-zai-qu-yu-nei-jing-wei-du-gong-ju-lei/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/hikers/about" target="_blank">link</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/hikers/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/hikers/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/">
+                                    <span class="chip bg-color">坐标系</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/hikers/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/hikers/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/hikers/2023/04/12/httputil-wang-luo-qing-qiu-gong-ju-lei-java/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/hikers/medias/featureimages/4.jpg" class="responsive-img" alt="HttpUtil 网络请求工具类（java）">
+                        
+                        <span class="card-title">HttpUtil 网络请求工具类（java）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hikers/categories/java-tool/" class="post-category">
+                                    java tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hikers/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/hikers/2022/11/24/docker-compose-bu-shu-elasticsearch-ji-qun/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/hikers/medias/featureimages/4.jpg" class="responsive-img" alt="docker-compose部署elasticsearch集群">
+                        
+                        <span class="card-title">docker-compose部署elasticsearch集群</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hikers/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hikers/tags/elasticsearch/">
+                        <span class="chip bg-color">elasticsearch</span>
+                    </a>
+                    
+                    <a href="/hikers/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/hikers/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/hikers/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: welcome<br />'
+            + '文章作者: link<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/hikers/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/hikers/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/hikers/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/hikers/libs/aplayer/APlayer.min.js"></script>
+<script src="/hikers/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/hikers/about" target="_blank">link</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "4";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/superhikers" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lb20920@vip.qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=951949965" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 951949965" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/hikers/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/hikers/libs/materialize/materialize.min.js"></script>
+    <script src="/hikers/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hikers/libs/aos/aos.js"></script>
+    <script src="/hikers/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hikers/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hikers/js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="/hikers/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "http://hikers.gitee.io/hikers"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/hikers/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/hikers/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
