@@ -20,7 +20,7 @@ newCachedThreadPool创建一个可缓存线">
 
 
     <title>springBoot 多线程+线程池处理+等待获取执行结果Future | welcome</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/hikers/favicon.png">
     
 
 
@@ -28,20 +28,20 @@ newCachedThreadPool创建一个可缓存线">
 
 
 
-<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-<link rel="stylesheet" type="text/css" href="/css/matery.css">
-<link rel="stylesheet" type="text/css" href="/css/my.css">
-<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/my.css">
+<link rel="stylesheet" type="text/css" href="/hikers/css/dark.css" media="none" onload="if(media!='all')media='all'">
 
 
 
 
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/hikers/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/hikers/css/post.css">
 
 
 
@@ -50,7 +50,7 @@ newCachedThreadPool创建一个可缓存线">
 
 
 
-    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/hikers/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
@@ -62,9 +62,9 @@ newCachedThreadPool创建一个可缓存线">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
+                <a href="/hikers/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/hikers/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">welcome</span>
                 </a>
@@ -76,7 +76,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/" class="waves-effect waves-light">
+    <a href="/hikers/" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -87,7 +87,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/hikers/tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags aa" style="zoom: 0.6;"></i>
       
@@ -98,7 +98,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="/hikers/categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -109,7 +109,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
+    <a href="/hikers/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -120,7 +120,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
+    <a href="/hikers/about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -131,7 +131,7 @@ newCachedThreadPool创建一个可缓存线">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/hikers/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
@@ -157,7 +157,7 @@ newCachedThreadPool创建一个可缓存线">
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/hikers/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">welcome</div>
         <div class="logo-desc">
@@ -171,7 +171,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/" class="waves-effect waves-light">
+		<a href="/hikers/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -182,7 +182,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="/hikers/tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags aa"></i>
 			
@@ -193,7 +193,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="/hikers/categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -204,7 +204,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
+		<a href="/hikers/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -215,7 +215,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
+		<a href="/hikers/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -226,7 +226,7 @@ newCachedThreadPool创建一个可缓存线">
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/hikers/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
@@ -314,7 +314,7 @@ newCachedThreadPool创建一个可缓存线">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hikers/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -343,23 +343,23 @@ newCachedThreadPool创建一个可缓存线">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/spring/">
+                            <a href="/hikers/tags/spring/">
                                 <span class="chip bg-color">spring</span>
                             </a>
                         
-                            <a href="/tags/java/">
+                            <a href="/hikers/tags/java/">
                                 <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                            <a href="/hikers/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
                                 <span class="chip bg-color">性能优化</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                            <a href="/hikers/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
                                 <span class="chip bg-color">多线程</span>
                             </a>
                         
-                            <a href="/tags/%E5%BC%82%E6%AD%A5/">
+                            <a href="/hikers/tags/%E5%BC%82%E6%AD%A5/">
                                 <span class="chip bg-color">异步</span>
                             </a>
                         
@@ -371,7 +371,7 @@ newCachedThreadPool创建一个可缓存线">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java-tool/" class="post-category">
+                            <a href="/hikers/categories/java-tool/" class="post-category">
                                 java tool
                             </a>
                         
@@ -401,7 +401,7 @@ newCachedThreadPool创建一个可缓存线">
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        <link rel="stylesheet" href="/hikers/libs/prism/prism.min.css">
         
 
         
@@ -748,7 +748,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">link</a>
+                    <a href="/hikers/about" rel="external nofollow noreferrer">link</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -758,7 +758,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://superhikers.github.io/2022/10/11/java-duo-xian-cheng-completablefuture/">https://superhikers.github.io/2022/10/11/java-duo-xian-cheng-completablefuture/</a>
+                    <a href="http://hikers.gitee.io/hikers/hikers/2022/10/11/java-duo-xian-cheng-completablefuture/">http://hikers.gitee.io/hikers/hikers/2022/10/11/java-duo-xian-cheng-completablefuture/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -771,7 +771,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">link</a>
+                    <a href="/hikers/about" target="_blank">link</a>
                     !
                 </span>
             </div>
@@ -796,23 +796,23 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/spring/">
+                                <a href="/hikers/tags/spring/">
                                     <span class="chip bg-color">spring</span>
                                 </a>
                             
-                                <a href="/tags/java/">
+                                <a href="/hikers/tags/java/">
                                     <span class="chip bg-color">java</span>
                                 </a>
                             
-                                <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <a href="/hikers/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
                                     <span class="chip bg-color">性能优化</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                                <a href="/hikers/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
                                     <span class="chip bg-color">多线程</span>
                                 </a>
                             
-                                <a href="/tags/%E5%BC%82%E6%AD%A5/">
+                                <a href="/hikers/tags/%E5%BC%82%E6%AD%A5/">
                                     <span class="chip bg-color">异步</span>
                                 </a>
                             
@@ -820,12 +820,12 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/hikers/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
+    <script src="/hikers/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -863,11 +863,11 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/24/docker-compose-bu-shu-elasticsearch-ji-qun/">
+                <a href="/hikers/2022/11/24/docker-compose-bu-shu-elasticsearch-ji-qun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="docker-compose部署elasticsearch集群">
+                        <img src="/hikers/medias/featureimages/4.jpg" class="responsive-img" alt="docker-compose部署elasticsearch集群">
                         
                         <span class="card-title">docker-compose部署elasticsearch集群</span>
                     </div>
@@ -886,7 +886,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/elasticsearch/" class="post-category">
+                            <a href="/hikers/categories/elasticsearch/" class="post-category">
                                     elasticsearch
                                 </a>
                             
@@ -897,19 +897,19 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/elasticsearch/">
+                    <a href="/hikers/tags/elasticsearch/">
                         <span class="chip bg-color">elasticsearch</span>
                     </a>
                     
-                    <a href="/tags/java/">
+                    <a href="/hikers/tags/java/">
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/docker/">
+                    <a href="/hikers/tags/docker/">
                         <span class="chip bg-color">docker</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                    <a href="/hikers/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
                         <span class="chip bg-color">大数据</span>
                     </a>
                     
@@ -924,11 +924,11 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/16/boot-zheng-he-elasticsearch/">
+                <a href="/hikers/2022/09/16/boot-zheng-he-elasticsearch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="spring Boot整合Elasticsearch(SearchSourceBuilder、BoolQueryBuilder、RestHighLevelClient的使用)">
+                        <img src="/hikers/medias/featureimages/6.jpg" class="responsive-img" alt="spring Boot整合Elasticsearch(SearchSourceBuilder、BoolQueryBuilder、RestHighLevelClient的使用)">
                         
                         <span class="card-title">spring Boot整合Elasticsearch(SearchSourceBuilder、BoolQueryBuilder、RestHighLevelClient的使用)</span>
                     </div>
@@ -947,7 +947,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/elasticsearch/" class="post-category">
+                            <a href="/hikers/categories/elasticsearch/" class="post-category">
                                     elasticsearch
                                 </a>
                             
@@ -958,15 +958,15 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/elasticsearch/">
+                    <a href="/hikers/tags/elasticsearch/">
                         <span class="chip bg-color">elasticsearch</span>
                     </a>
                     
-                    <a href="/tags/spring/">
+                    <a href="/hikers/tags/spring/">
                         <span class="chip bg-color">spring</span>
                     </a>
                     
-                    <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
+                    <a href="/hikers/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
                         <span class="chip bg-color">搜索引擎</span>
                     </a>
                     
@@ -1020,26 +1020,26 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeBlockFuction.js"></script>
 
 
   <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+  <script type="text/javascript" src="/hikers/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/hikers/libs/codeBlock/codeShrink.js"></script>
 
 
 
@@ -1061,7 +1061,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
 </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
+<script src="/hikers/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1133,7 +1133,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="/hikers/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1183,8 +1183,8 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
     </div>
 </div>
 
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
+<script src="/hikers/libs/aplayer/APlayer.min.js"></script>
+<script src="/hikers/libs/aplayer/Meting.min.js"></script>
 
     
 
@@ -1195,7 +1195,7 @@ newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯�
             
                 <span id="year">2023</span>
             
-            <a href="/about" target="_blank">link</a>
+            <a href="/hikers/about" target="_blank">link</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             
@@ -1412,7 +1412,7 @@ $(function () {
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    searchFunc('/hikers/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1448,21 +1448,21 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+    <script src="/hikers/libs/materialize/materialize.min.js"></script>
+    <script src="/hikers/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hikers/libs/aos/aos.js"></script>
+    <script src="/hikers/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hikers/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hikers/js/matery.js"></script>
 
     
 
     
-        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript" src="/hikers/js/tw_cn.js"></script>
         <script type="text/javascript">
           var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
           var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
-          var cookieDomain = "https://superhikers.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var cookieDomain = "http://hikers.gitee.io/hikers"; //Cookie地址, 一定要设定, 通常为你的网址
           var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
           var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
           var translateButtonId = "translateLink"; //默认互换id
@@ -1480,7 +1480,7 @@ $(function () {
 
      
         <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
+        <script src="/hikers/libs/others/TencentCaptcha.js"></script>
         <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
@@ -1518,7 +1518,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/hikers/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
