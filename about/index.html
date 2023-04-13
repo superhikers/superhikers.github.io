@@ -354,7 +354,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/hikers/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/hikers/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -616,7 +618,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["java","elasticsearch","spring","postgresql","sql","数据库","搜索引擎","docker","大数据","性能优化"]
+                data: ["java","elasticsearch","spring","postgresql","sql","docker","大数据","搜索引擎","数据库","性能优化"]
             }
         ],
         yAxis: [
@@ -629,7 +631,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [5,2,2,2,2,2,1,1,1,1],
+                data: [5,2,2,2,2,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -685,39 +687,6 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 80%">
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill-bar-percent">80%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 80%">
-                    <span>HTML5</span>
-                </div>
-                <div class="skill-bar-percent">80%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 70%">
-                    <span>CSS</span>
-                </div>
-                <div class="skill-bar-percent">70%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
                      style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 90%">
                     <span>SQL</span>
                 </div>
@@ -733,6 +702,17 @@
                     <span>程序设计</span>
                 </div>
                 <div class="skill-bar-percent">75%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 85%">
+                    <span>RebbitMQ</span>
+                </div>
+                <div class="skill-bar-percent">85%</div>
             </div>
         </div>
         
@@ -753,24 +733,6 @@
             
             
             
-            <a href="/hikers/tags/spring/">
-                <span class="chip center-align waves-effect waves-light chip-default">spring</span>
-            </a>
-            
-            
-            
-            <a href="/hikers/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
-                <span class="chip center-align waves-effect waves-light chip-default">搜索引擎</span>
-            </a>
-            
-            
-            
-            <a href="/hikers/tags/java/">
-                <span class="chip center-align waves-effect waves-light chip-default">java</span>
-            </a>
-            
-            
-            
             <a href="/hikers/tags/docker/">
                 <span class="chip center-align waves-effect waves-light chip-default">docker</span>
             </a>
@@ -783,20 +745,20 @@
             
             
             
-            <a href="/hikers/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                <span class="chip center-align waves-effect waves-light chip-default">性能优化</span>
+            <a href="/hikers/tags/java/">
+                <span class="chip center-align waves-effect waves-light chip-default">java</span>
             </a>
             
             
             
-            <a href="/hikers/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                <span class="chip center-align waves-effect waves-light chip-default">多线程</span>
+            <a href="/hikers/tags/spring/">
+                <span class="chip center-align waves-effect waves-light chip-default">spring</span>
             </a>
             
             
             
-            <a href="/hikers/tags/%E5%BC%82%E6%AD%A5/">
-                <span class="chip center-align waves-effect waves-light chip-default">异步</span>
+            <a href="/hikers/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
+                <span class="chip center-align waves-effect waves-light chip-default">搜索引擎</span>
             </a>
             
             
@@ -819,8 +781,26 @@
             
             
             
-            <a href="/hikers/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/">
-                <span class="chip center-align waves-effect waves-light chip-default">坐标系</span>
+            <a href="/hikers/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                <span class="chip center-align waves-effect waves-light chip-default">性能优化</span>
+            </a>
+            
+            
+            
+            <a href="/hikers/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">多线程</span>
+            </a>
+            
+            
+            
+            <a href="/hikers/tags/%E5%BC%82%E6%AD%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">异步</span>
+            </a>
+            
+            
+            
+            <a href="/hikers/tags/%E5%9C%B0%E5%9B%BE/">
+                <span class="chip center-align waves-effect waves-light chip-default">地图</span>
             </a>
             
             

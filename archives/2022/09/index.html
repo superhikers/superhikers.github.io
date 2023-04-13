@@ -347,7 +347,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/hikers/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/hikers/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 

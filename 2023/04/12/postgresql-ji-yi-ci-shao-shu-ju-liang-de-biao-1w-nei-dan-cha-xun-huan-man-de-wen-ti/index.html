@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【PostgreSQL】记一次少数据量的表（1w内）但查询缓慢的问题, link">
+    <meta name="keywords" content="性能优化,postgresql,pgsql">
     <meta name="description" content="问题在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢1、解决方案：1、排查初期以为的查询语句的问题，后面直接新建了一张表做替换，问题暂时解决。
 
-2、问题原因： **1. 经过分析，发现出现这个问题的原因是这个表一直">
+2、问题原因：
+经过分析，发现出现这个问题的原因是这个表一直在进行频繁">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -351,10 +352,6 @@
                                 <span class="chip bg-color">sql</span>
                             </a>
                         
-                            <a href="/hikers/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -406,10 +403,9 @@
             <div id="articleContent">
                 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢"><a href="#在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢" class="headerlink" title="在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢"></a>在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢</h4><h6 id="1、解决方案："><a href="#1、解决方案：" class="headerlink" title="1、解决方案："></a>1、解决方案：</h6><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span>、排查初期以为的查询语句的问题，后面直接新建了一张表做替换，问题暂时解决。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h6 id="2、问题原因："><a href="#2、问题原因：" class="headerlink" title="2、问题原因："></a>2、问题原因：</h6><pre><code> **1. 经过分析，发现出现这个问题的原因是这个表一直在进行频繁的 
- update 操作，频繁的 update 和 delete 操作会导致表内有大量的碎片，
- 数据其实没有被真正的物理删除，导致查询的高水位线问题。**
-</code></pre>
+<h6 id="2、问题原因："><a href="#2、问题原因：" class="headerlink" title="2、问题原因："></a>2、问题原因：</h6><ol>
+<li><strong>经过分析，发现出现这个问题的原因是这个表一直在进行频繁的 update 操作，频繁的 update 和 delete 操作会导致表内有大量的碎片，数据其实没有被真正的物理删除，导致查询的高水位线问题。</strong></li>
+</ol>
 <h6 id="3、最终的解决方案："><a href="#3、最终的解决方案：" class="headerlink" title="3、最终的解决方案："></a>3、最终的解决方案：</h6><p>​	1. 写定时任务做定期的表磁盘清理	</p>
 <h4 id="执行步骤："><a href="#执行步骤：" class="headerlink" title="执行步骤："></a>执行步骤：</h4><p><strong>【注意】，在生产环境下，如果表数据非常大的情况下，不要轻易执行此操作，会导致表的长时间不可以</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 1、查看表空间大小</span>
@@ -551,10 +547,6 @@ VERBOSE
                                     <span class="chip bg-color">sql</span>
                                 </a>
                             
-                                <a href="/hikers/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -648,10 +640,6 @@ VERBOSE
                     
                     <a href="/hikers/tags/sql/">
                         <span class="chip bg-color">sql</span>
-                    </a>
-                    
-                    <a href="/hikers/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -802,7 +790,7 @@ VERBOSE
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
         });
 
         // Set scroll toc fixed.

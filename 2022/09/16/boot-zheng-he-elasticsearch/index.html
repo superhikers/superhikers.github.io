@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="spring Boot整合Elasticsearch(SearchSourceBuilder、BoolQueryBuilder、RestHighLevelClient的使用), link">
+    <meta name="keywords" content="elasticsearch,java,spring,SearchSourceBuilder,BoolQueryBuilder,RestHighLevelClient">
     <meta name="description" content="Spring Boot整合Elasticsearch(SearchSourceBuilder、BoolQueryBuilder、RestHighLevelClient的使用)1、maven引入(version版本需要与es的版本一致)
 &amp;l">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1046,12 +1046,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/hikers/tags/spring/">
-                        <span class="chip bg-color">spring</span>
-                    </a>
-                    
                     <a href="/hikers/tags/java/">
                         <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/hikers/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                     <a href="/hikers/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
@@ -1222,7 +1222,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
         });
 
         // Set scroll toc fixed.
