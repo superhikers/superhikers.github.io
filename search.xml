@@ -126,13 +126,13 @@
       
         <tags>
             
+            <tag> java </tag>
+            
             <tag> elasticsearch </tag>
             
             <tag> docker </tag>
             
             <tag> 大数据 </tag>
-            
-            <tag> java </tag>
             
         </tags>
       
@@ -157,9 +157,9 @@
       
         <tags>
             
-            <tag> spring </tag>
-            
             <tag> java </tag>
+            
+            <tag> spring </tag>
             
             <tag> 性能优化 </tag>
             
