@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="性能优化,postgresql,pgsql">
-    <meta name="description" content="问题在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢1、解决方案：1、排查初期以为的查询语句的问题，后面直接新建了一张表做替换，问题暂时解决。
-
-2、问题原因：
-经过分析，发现出现这个问题的原因是这个表一直在进行频繁">
+    <meta name="keywords" content="软考,计算机组成与体系结构">
+    <meta name="description" content="计算机组成与体系1.1 数据的表示1.1.1、进制转换1.1.1.2、二进制转十进制将二进制数转换为十进制数，可以使用加权法。具体做法是将每一位的值乘以2的对应幂次方，再将得到的结果相加即可。
+例如，将10001001转换为十进制：
+1 *">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【PostgreSQL】记一次少数据量的表（1w内）但查询缓慢的问题 | link</title>
+    <title>计算机组成与体系结构 | link</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -315,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【PostgreSQL】记一次少数据量的表（1w内）但查询缓慢的问题</h1>
+                    <h1 class="description center-align post-title">计算机组成与体系结构</h1>
                 </div>
             </div>
         </div>
@@ -344,12 +343,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/postgresql/">
-                                <span class="chip bg-color">postgresql</span>
+                            <a href="/tags/%E8%BD%AF%E8%80%83/">
+                                <span class="chip bg-color">软考</span>
                             </a>
                         
-                            <a href="/tags/sql/">
-                                <span class="chip bg-color">sql</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">计算机组成与体系结构</span>
                             </a>
                         
                     </div>
@@ -360,12 +359,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/postgresql/" class="post-category">
-                                postgresql
-                            </a>
-                        
-                            <a href="/categories/postgresql/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
-                                性能优化
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="post-category">
+                                计算机组成与体系结构
                             </a>
                         
                     </div>
@@ -377,7 +372,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-12
+                    2023-04-18
                 </div>
                 
 
@@ -401,80 +396,131 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢"><a href="#在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢" class="headerlink" title="在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢"></a>在表数据不多的情况下（1w条以下），简单的对表进行查询，但查询非常的缓慢</h4><h6 id="1、解决方案："><a href="#1、解决方案：" class="headerlink" title="1、解决方案："></a>1、解决方案：</h6><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span>、排查初期以为的查询语句的问题，后面直接新建了一张表做替换，问题暂时解决。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="计算机组成与体系"><a href="#计算机组成与体系" class="headerlink" title="计算机组成与体系"></a>计算机组成与体系</h1><h2 id="1-1-数据的表示"><a href="#1-1-数据的表示" class="headerlink" title="1.1 数据的表示"></a>1.1 数据的表示</h2><h3 id="1-1-1、进制转换"><a href="#1-1-1、进制转换" class="headerlink" title="1.1.1、进制转换"></a>1.1.1、进制转换</h3><h4 id="1-1-1-2、二进制转十进制"><a href="#1-1-1-2、二进制转十进制" class="headerlink" title="1.1.1.2、二进制转十进制"></a>1.1.1.2、二进制转十进制</h4><p>将二进制数转换为十进制数，可以使用加权法。具体做法是将每一位的值乘以2的对应幂次方，再将得到的结果相加即可。</p>
+<p>例如，将10001001转换为十进制：</p>
+<p>1 * 2^7 + 0 * 2^6 + 0 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 0 * 2^1 + 1 * 2^0 = 128 + 8 + 1 = 137</p>
+<p>因此，10001001的二进制表示是十进制数137。</p>
+<h4 id="1-1-1-2-十进制转二进制"><a href="#1-1-1-2-十进制转二进制" class="headerlink" title="1.1.1.2 十进制转二进制"></a>1.1.1.2 十进制转二进制</h4><p>使用短除法</p>
+<p>短除法是一种将十进制数转换为二进制数的方法，其基本原理是将待转换的十进制数不断除以2，得到的余数按相反顺序排列就是转换后的二进制数。以下是一个例子：</p>
+<p>将十进制数137转换为二进制数。</p>
+<pre class="line-numbers language-none"><code class="language-none">137 / 2 = 68 ... 1
+ 68 / 2 = 34 ... 0
+ 34 / 2 = 17 ... 0
+ 17 / 2 =  8 ... 1
+  8 / 2 =  4 ... 0
+  4 / 2 =  2 ... 0
+  2 / 2 =  1 ... 0
+  1 / 2 =  0 ... 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h6 id="2、问题原因："><a href="#2、问题原因：" class="headerlink" title="2、问题原因："></a>2、问题原因：</h6><ol>
-<li><strong>经过分析，发现出现这个问题的原因是这个表一直在进行频繁的 update 操作，频繁的 update 和 delete 操作会导致表内有大量的碎片，数据其实没有被真正的物理删除，导致查询的高水位线问题。</strong></li>
+<p>将上述除法中每一步得到的余数按照下面的方法组成二进制数，即可得到十进制数137的二进制表示：</p>
+<pre class="line-numbers language-none"><code class="language-none">137 =   1 * 2^7
+     + 0 * 2^6
+     + 0 * 2^5
+     + 0 * 2^4
+     + 1 * 2^3
+     + 0 * 2^2
+     + 0 * 2^1
+     + 1 * 2^0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>因此，十进制数137的二进制表示为10001001。在这个二进制数中，第一个数位是该数的最高位（即2^7），最后一个数位是该数的最低位（即2^0）。</p>
+<h4 id="1-1-1-3-二进制转八进制和十六进制"><a href="#1-1-1-3-二进制转八进制和十六进制" class="headerlink" title="1.1.1.3 二进制转八进制和十六进制"></a>1.1.1.3 二进制转八进制和十六进制</h4><p>将二进制转换为八进制，可以将二进制数每三位分一组，从最低位开始，不足三位的高位补0，然后将每组转换为对应的八进制数即可。例如，将10001001转换为八进制：</p>
+<pre class="line-numbers language-none"><code class="language-none">10 001 001
+ 2  1  1
+= 111<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>因此，10001001的二进制表示为111（八进制）。</p>
+<p>将二进制转换为十六进制，可以将二进制数每四位分一组，从最低位开始，不足四位的高位补0，然后将每组转换为对应的十六进制数即可。例如，将10001001转换为十六进制：</p>
+<pre class="line-numbers language-none"><code class="language-none">1000 1001
+ 8    9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>因此，10001001的二进制表示为89（十六进制）。</p>
+<h3 id="1-1-2-原码-反码-补码-移码"><a href="#1-1-2-原码-反码-补码-移码" class="headerlink" title="1.1.2 原码 反码 补码 移码"></a>1.1.2 原码 反码 补码 移码</h3><p><img src="/.io//img/jsjzcytxjg/image-20230418155830617.png" alt="image-20230418155830617"></p>
+<h4 id="1-1-2-1原码"><a href="#1-1-2-1原码" class="headerlink" title="1.1.2.1原码"></a>1.1.2.1原码</h4><p>原码是一种最简单、最直观的二进制数表示法。在原码中，一个数用其二进制数绝对值的码位和符号位表示。其中，最高位是符号位，0表示正数，1表示负数。</p>
+<p>例如，+7的原码为00000111，-7的原码为10000111。</p>
+<h4 id="1-1-2-2反码"><a href="#1-1-2-2反码" class="headerlink" title="1.1.2.2反码"></a>1.1.2.2反码</h4><p>反码是为了解决原码减法的问题而引入的，可以将减法运算转换成加法运算，从而简化计算机的硬件电路。在反码中，正数的反码与原码相同，负数的反码是其原码除符号位外各位取反。</p>
+<p>例如，+7的反码为00000111，-7的反码为11111000。</p>
+<h4 id="1-1-2-3-补码"><a href="#1-1-2-3-补码" class="headerlink" title="1.1.2.3 补码"></a>1.1.2.3 补码</h4><p>补码是为了解决反码的问题而引入的，可以将减法运算再次转换成加法运算，同时只有一个零表示方法，使用起来更加方便。在补码中，正数的补码与原码相同，负数的补码是其绝对值的二进制表示按位取反再加1。</p>
+<p>例如，+7的补码为00000111，-7的补码为11111101。</p>
+<h4 id="1-1-2-4-移码"><a href="#1-1-2-4-移码" class="headerlink" title="1.1.2.4 移码"></a>1.1.2.4 移码</h4><p>移码是对补码的符号位取反</p>
+<p>例如，+7的补码为 00000111，-7的补码为 11111101。</p>
+<p>+7的移码为 10000111，-7的移码为 01111101。</p>
+<p>移码是为了方便浮点数的表示而引入的，通过将阶码与一个偏移量相加，可以将浮点数表示成一个固定长度的二进制数，方便进行计算和存储。在移码中，阶码用无符号整数表示，偏移量是2^(k-1)-1，其中k是移码的位数。例如，在32位移码中，偏移量是127，所以一个浮点数的移码等于其阶码加上127。</p>
+<p>在计算机硬件电路中，使用补码比原码、反码更为普遍，而浮点数通常采用移码表示。</p>
+<h4 id="1-1-2-5-取值范围"><a href="#1-1-2-5-取值范围" class="headerlink" title="1.1.2.5 取值范围"></a>1.1.2.5 取值范围</h4><p><img src="/.io//img/jsjzcytxjg/1681805005774.jpg" alt="1681805005774"></p>
+<h3 id="1-1-3-浮点数运算"><a href="#1-1-3-浮点数运算" class="headerlink" title="1.1.3 浮点数运算"></a>1.1.3 浮点数运算</h3><p>多在选择题</p>
+<p><img src="/.io//img/jsjzcytxjg/1681805237641.jpg" alt="1681805237641"></p>
+<h2 id="1-2-cpu结构"><a href="#1-2-cpu结构" class="headerlink" title="1.2 cpu结构"></a>1.2 cpu结构</h2><p><img src="/.io//img/jsjzcytxjg/1681805795843.jpg" alt="1681805795843"></p>
+<h2 id="1-3-Flynn"><a href="#1-3-Flynn" class="headerlink" title="1.3 Flynn"></a>1.3 Flynn</h2><p><img src="/.io//img/jsjzcytxjg/1681807126963.jpg" alt="1681807126963"></p>
+<h2 id="1-4-CISC-复杂指令集-和RISC-精简指令集"><a href="#1-4-CISC-复杂指令集-和RISC-精简指令集" class="headerlink" title="1.4 CISC(复杂指令集)和RISC(精简指令集)"></a>1.4 CISC(复杂指令集)和RISC(精简指令集)</h2><p><img src="/.io//img/jsjzcytxjg/1681807078627.jpg" alt="1681807078627"></p>
+<p>CISC和RISC指令集在设计思想、特点和使用场景方面有很大的不同。</p>
+<ol>
+<li>设计思想：</li>
 </ol>
-<h6 id="3、最终的解决方案："><a href="#3、最终的解决方案：" class="headerlink" title="3、最终的解决方案："></a>3、最终的解决方案：</h6><p>​	1. 写定时任务做定期的表磁盘清理	</p>
-<h4 id="执行步骤："><a href="#执行步骤：" class="headerlink" title="执行步骤："></a>执行步骤：</h4><p><strong>【注意】，在生产环境下，如果表数据非常大的情况下，不要轻易执行此操作，会导致表的长时间不可以</strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 1、查看表空间大小</span>
-<span class="token keyword">select</span> pg_size_pretty<span class="token punctuation">(</span>pg_relation_size<span class="token punctuation">(</span><span class="token string">'表名'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>CISC指令集的设计思想是将各种复杂的操作封装成单个指令，从而实现一种指令多功能的设计，以便于程序员编写复杂的程序。</p>
+<p>RISC指令集的设计思想则是将指令集设计得更加简洁明了，以尽可能提高处理器执行指令的效率。</p>
+<ol>
+<li>特点：</li>
+</ol>
+<p>CISC指令集的特点是指令集非常复杂，包含了各种寻址方式、分支和子程序调用等操作，这些操作可以用单个指令来完成。CISC指令集还可以通过采用微指令控制器等技术来扩展指令集功能。CISC指令集的优点是能够简化编写代码的过程，但同时也存在指令执行效率低下的问题。</p>
+<p>RISC指令集的特点是指令集设计相对简单，指令流水线化比较容易，因此可以提高指令的执行效率。RISC指令集的设计通常包含定长指令格式，使用寄存器作为操作数，而不是直接操作内存，这也有助于提高指令执行效率。但是，RISC指令集也因其指令集设计简单而无法完成复杂的操作，需要执行更多的指令。</p>
+<ol>
+<li>使用场景：</li>
+</ol>
+<p>CISC指令集适用于需要完成较为复杂的操作，如字符串处理、带有变长参数的子程序调用等应用场景。目前大部分PC计算机都采用的是x86系列处理器，这些处理器采用的就是CISC指令集。</p>
+<p>RISC指令集则适用于需要大量执行简单操作的应用场景，如通信、图像处理、音频处理等。在嵌入式系统领域，RISC指令集也得到了广泛的应用，例如ARM、MIPS等处理器就采用了RISC指令集架构。</p>
+<h2 id="1-5-流水线"><a href="#1-5-流水线" class="headerlink" title="1.5 流水线"></a>1.5 流水线</h2><h3 id="1-5-1-概念"><a href="#1-5-1-概念" class="headerlink" title="1.5.1 概念"></a>1.5.1 概念</h3><p><img src="/.io//img/jsjzcytxjg/1681807406021.jpg" alt="1681807406021"></p>
+<p>具体来说，处理器的流水线包括多个阶段，每个阶段完成特定的任务，各个阶段之间串联起来形成一个流水线，每个时钟周期处理器执行一个指令，并且每个阶段都在执行不同的指令。这样就可以同时完成多个指令的处理，提高处理器的整体性能。</p>
+<h3 id="1-5-2-流水线周期、执行时间计算公式"><a href="#1-5-2-流水线周期、执行时间计算公式" class="headerlink" title="1.5.2 流水线周期、执行时间计算公式"></a>1.5.2 流水线周期、执行时间计算公式</h3><p><img src="/.io//img/jsjzcytxjg/1681808023024.jpg" alt="1681808023024"></p>
+<ol>
+<li><p>周期：最长的执行时间</p>
+</li>
+<li><p>执行一次流水线后就算正式开始，那么执行的时间就是 </p>
+<pre class="line-numbers language-none"><code class="language-none">（第一次执行时间）+（n-1）*周期  
+= (2+2+1) + (100-1) * 2
+= 5 + 99 * 2   （括号内的减号可以看成是乘以-1）
+= 5 + 198
+= 203<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>实际上 可能会把第一次执行的时间 用周期来计算</p>
+<pre class="line-numbers language-none"><code class="language-none">（第一次执行时间）+（n-1）*周期  
+= (2+2+2) + (100-1) * 2
+= 5 + 99 * 2   （括号内的减号可以看成是乘以-1）
+= 5 + 198
+= 204<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="1-5-3-流水线吞吐率计算"><a href="#1-5-3-流水线吞吐率计算" class="headerlink" title="1.5.3 流水线吞吐率计算"></a>1.5.3 流水线吞吐率计算</h3><pre class="line-numbers language-none"><code class="language-none">吞吐率 = 指令条数/流水线执行时间
+      = 100/203
+      ≈ 0.4926<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment">-- 2、优化表空间</span>
-<span class="token comment">-- 2.1、维护数据库磁盘，释放空间（注意，在生产环境下，</span>
-<span class="token comment">-- 如果表数据非常大的情况下，不要轻易执行此操作，会导致表的长时间不可用）</span>
-vacuum <span class="token keyword">FULL</span> 表名<span class="token punctuation">;</span>
-<span class="token comment">-- 2.2、重建索引，替换查询效率</span>
-REINDEX <span class="token keyword">TABLE</span> 表名<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="清理磁盘空间碎片VACUUM"><a href="#清理磁盘空间碎片VACUUM" class="headerlink" title="清理磁盘空间碎片VACUUM"></a>清理磁盘空间碎片VACUUM</h3><h4 id="1、查询表占用空间大小"><a href="#1、查询表占用空间大小" class="headerlink" title="1、查询表占用空间大小"></a>1、查询表占用空间大小</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">--数据库中单个表的大小（不包含索引）</span>
-<span class="token keyword">select</span> pg_size_pretty<span class="token punctuation">(</span>pg_relation_size<span class="token punctuation">(</span><span class="token string">'表名'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-<span class="token comment">--查出所有表（包含索引）并排序</span>
-<span class="token keyword">SELECT</span> table_schema <span class="token operator">||</span> <span class="token string">'.'</span> <span class="token operator">||</span> table_name <span class="token keyword">AS</span> table_full_name<span class="token punctuation">,</span> pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span><span class="token string">'"'</span> <span class="token operator">||</span> table_schema <span class="token operator">||</span> <span class="token string">'"."'</span> <span class="token operator">||</span> table_name <span class="token operator">||</span> <span class="token string">'"'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> size
-<span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span>
-<span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
-pg_total_relation_size<span class="token punctuation">(</span><span class="token string">'"'</span> <span class="token operator">||</span> table_schema <span class="token operator">||</span> <span class="token string">'"."'</span> <span class="token operator">||</span> table_name <span class="token operator">||</span> <span class="token string">'"'</span><span class="token punctuation">)</span> <span class="token keyword">DESC</span> <span class="token keyword">limit</span> <span class="token number">20</span>
- 
-<span class="token comment">--查出表大小按大小排序并分离data与index</span>
-<span class="token keyword">SELECT</span>
-table_name<span class="token punctuation">,</span>
-pg_size_pretty<span class="token punctuation">(</span>table_size<span class="token punctuation">)</span> <span class="token keyword">AS</span> table_size<span class="token punctuation">,</span>
-pg_size_pretty<span class="token punctuation">(</span>indexes_size<span class="token punctuation">)</span> <span class="token keyword">AS</span> indexes_size<span class="token punctuation">,</span>
-pg_size_pretty<span class="token punctuation">(</span>total_size<span class="token punctuation">)</span> <span class="token keyword">AS</span> total_size
-<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
-<span class="token keyword">SELECT</span>
-table_name<span class="token punctuation">,</span>
-pg_table_size<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span> <span class="token keyword">AS</span> table_size<span class="token punctuation">,</span>
-pg_indexes_size<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span> <span class="token keyword">AS</span> indexes_size<span class="token punctuation">,</span>
-pg_total_relation_size<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span> <span class="token keyword">AS</span> total_size
-<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
-<span class="token keyword">SELECT</span> <span class="token punctuation">(</span><span class="token string">'"'</span> <span class="token operator">||</span> table_schema <span class="token operator">||</span> <span class="token string">'"."'</span> <span class="token operator">||</span> table_name <span class="token operator">||</span> <span class="token string">'"'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> table_name
-<span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span>
-<span class="token punctuation">)</span> <span class="token keyword">AS</span> all_tables
-<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> total_size <span class="token keyword">DESC</span>
-<span class="token punctuation">)</span> <span class="token keyword">AS</span> pretty_sizes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="2、VACUUM进行表空间回收"><a href="#2、VACUUM进行表空间回收" class="headerlink" title="2、VACUUM进行表空间回收"></a>2、VACUUM进行表空间回收</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">VACUUM <span class="token punctuation">[</span> <span class="token keyword">FULL</span> <span class="token punctuation">]</span> <span class="token punctuation">[</span> FREEZE <span class="token punctuation">]</span> <span class="token punctuation">[</span> VERBOSE <span class="token punctuation">]</span> <span class="token punctuation">[</span> 表名 <span class="token punctuation">]</span> 
+<h3 id="1-5-4-加速比和效率的技术"><a href="#1-5-4-加速比和效率的技术" class="headerlink" title="1.5.4 加速比和效率的技术"></a>1.5.4 加速比和效率的技术</h3><h4 id="1-5-4-1-加速比"><a href="#1-5-4-1-加速比" class="headerlink" title="1.5.4.1 加速比"></a>1.5.4.1 加速比</h4><pre class="line-numbers language-none"><code class="language-none">加速比 = 不使用流水线时间 / 使用流水线时间
+= (2 + 2 + 1) * (100 / 1) / ((2 + 2 + 1) + (100 - 1) * 2)
+ = 151 / 203 ≈ 0.7438
+根据该公式，可得：
+加速比 = 151 / 203 ≈ 0.7438
+即使用流水线相较于不使用流水线可以将执行时间缩短约 25.62%，加速比为 0.7438。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-参数
-<span class="token keyword">FULL</span>
 
-选择<span class="token string">"完全"</span>清理，这样可以恢复更多的空间，但是花的时间更多并且在表上施加了排它锁。
 
-FREEZE
+<h4 id="1-5-4-2-效率"><a href="#1-5-4-2-效率" class="headerlink" title="1.5.4.2 效率"></a>1.5.4.2 效率</h4><p><img src="/.io//img/jsjzcytxjg/1681809978028.jpg" alt="1681809978028"></p>
+<pre class="line-numbers language-none"><code class="language-none">            也就是表格中灰色部分 / 总表格的大小
+流水线效率 = n个任务占用的时空区总数 / k个流水段的总时空区
+          = (t+t+t+3t) * 4 / 15t * 4 
+其实就是计算灰格子占总表格的比例情况，比例越高效率越高<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-选择激进的行<span class="token string">"冻结"</span>。指定 FREEZE 相当于执行 VACUUM 时将 vacuum_freeze_min_age 参数设为零。FREEZE 选项将在未来的版本中被取消，并且反对使用，你应当使用设置正确的参数值的方法来达到目的。
 
-VERBOSE
 
-为每个表打印一份详细的清理工作报告
 
-<span class="token keyword">ANALYZE</span>
 
-更新用于优化器的统计信息，以决定执行查询的最有效方法。
 
-<span class="token keyword">table</span>
 
-要清理的表的名称<span class="token punctuation">(</span>可以有模式修饰<span class="token punctuation">)</span>。缺省时是当前数据库中的所有表。
 
-<span class="token keyword">column</span>
 
-要分析的具体的字段名称。缺省是所有字段。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/VicLiu/p/12011410.html">https://www.cnblogs.com/VicLiu/p/12011410.html</a></p>
+
+
+
 
                 
             </div>
@@ -501,7 +547,7 @@ VERBOSE
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hikers.gitee.io/2023/04/12/postgresql-ji-yi-ci-shao-shu-ju-liang-de-biao-1w-nei-dan-cha-xun-huan-man-de-wen-ti/">http://hikers.gitee.io/2023/04/12/postgresql-ji-yi-ci-shao-shu-ju-liang-de-biao-1w-nei-dan-cha-xun-huan-man-de-wen-ti/</a>
+                    <a href="http://hikers.gitee.io/2023/04/18/ji-suan-ji-zu-cheng-yu-ti-xi-jie-gou/">http://hikers.gitee.io/2023/04/18/ji-suan-ji-zu-cheng-yu-ti-xi-jie-gou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -539,12 +585,12 @@ VERBOSE
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/postgresql/">
-                                    <span class="chip bg-color">postgresql</span>
+                                <a href="/tags/%E8%BD%AF%E8%80%83/">
+                                    <span class="chip bg-color">软考</span>
                                 </a>
                             
-                                <a href="/tags/sql/">
-                                    <span class="chip bg-color">sql</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">计算机组成与体系结构</span>
                                 </a>
                             
                         </div>
@@ -590,9 +636,10 @@ VERBOSE
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/04/18/ji-suan-ji-zu-cheng-yu-ti-xi-jie-gou/">
                     <div class="card-image">
@@ -610,9 +657,9 @@ VERBOSE
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -625,6 +672,7 @@ VERBOSE
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -647,13 +695,13 @@ VERBOSE
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/12/java-dao-chu-word-wen-dang/">
+                <a href="/2023/04/12/postgresql-ji-yi-ci-shao-shu-ju-liang-de-biao-1w-nei-dan-cha-xun-huan-man-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="java 导出word文档">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【PostgreSQL】记一次少数据量的表（1w内）但查询缓慢的问题">
                         
-                        <span class="card-title">java 导出word文档</span>
+                        <span class="card-title">【PostgreSQL】记一次少数据量的表（1w内）但查询缓慢的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -670,8 +718,12 @@ VERBOSE
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java-tool/" class="post-category">
-                                    java tool
+                            <a href="/categories/postgresql/" class="post-category">
+                                    postgresql
+                                </a>
+                            
+                            <a href="/categories/postgresql/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
+                                    性能优化
                                 </a>
                             
                             
@@ -681,8 +733,12 @@ VERBOSE
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/postgresql/">
+                        <span class="chip bg-color">postgresql</span>
+                    </a>
+                    
+                    <a href="/tags/sql/">
+                        <span class="chip bg-color">sql</span>
                     </a>
                     
                 </div>
