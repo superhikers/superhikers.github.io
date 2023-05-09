@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机组成与体系结构 | link</title>
+    <title>1.计算机组成与体系结构 | link</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -314,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机组成与体系结构</h1>
+                    <h1 class="description center-align post-title">1.计算机组成与体系结构</h1>
                 </div>
             </div>
         </div>
@@ -359,8 +359,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="post-category">
-                                计算机组成与体系结构
+                            <a href="/categories/%E8%BD%AF%E8%80%83/" class="post-category">
+                                软考
                             </a>
                         
                     </div>
@@ -557,6 +557,56 @@ t3 = 0.95 * 1 + (1-0.95) * 1000
 <p>RAM（Random Access Memory）和 ROM（Read Only Memory）都属于计算机内存的范畴。它们都是用来存储数据和程序的硬件设备，在计算机中发挥着重要的作用。</p>
 <p>RAM通常指的是随机访问存储器，是一种易失性存储器，意味着电源关闭后其中存储的数据会丢失。在 RAM 中，数据可以任意读写，并且存储器中的地址单元和存储单元可以动态地分配和释放，因此 RAM 也被称为“易失性随机存储器”（Volatile Random-access Memory）。 RAM 分为静态 RAM（SRAM）和动态 RAM（DRAM）两种，其中 SRAM 的速度比 DRAM 更快，但成本更高。</p>
 <p>ROM通常指的是只读存储器，是一种非易失性存储器，其中存储的数据无法进行修改或删除。在 ROM 中，数据是预先写入并固化在芯片中的，因此它也被称为只读存储器（Read-only Memory）。在计算机中，ROM 通常用来存储固件或者操作系统等重要数据，以确保其不会丢失或被篡改。（例如 BIOS 就在rom中）</p>
+<h3 id="1-9-2-主存-编址"><a href="#1-9-2-主存-编址" class="headerlink" title="1.9.2 主存-编址"></a>1.9.2 主存-编址</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683613501687.jpg" alt="1683613501687"></p>
+<p>todo 不太明白</p>
+<h2 id="1-10-磁盘工作原理"><a href="#1-10-磁盘工作原理" class="headerlink" title="1.10 磁盘工作原理"></a>1.10 磁盘工作原理</h2><h3 id="1-10-1-磁盘结构和参数"><a href="#1-10-1-磁盘结构和参数" class="headerlink" title="1.10.1 磁盘结构和参数"></a>1.10.1 磁盘结构和参数</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683614304444.jpg" alt="1683614304444"></p>
+<h3 id="1-10-2-试题"><a href="#1-10-2-试题" class="headerlink" title="1.10.2 试题"></a>1.10.2 试题</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683614422913.jpg" alt="1683614422913"></p>
+<p>分析：一个11个物理块，周期 33 ms 也就是读取一个物理块3 ms，并且是单缓存区顺序处理，也就是读取数据后丢到缓存区去处理还需要3ms，并且只能顺序处理，那么按照下图：</p>
+<p>1、从 R0 开始位置开始到 R0 结束，读取后丢到缓冲区，再等 3ms 处理</p>
+<p>2、此时磁头已经到了 R2 的开始位置了 ，但是 R1 还没读取，所以要跑一圈 跑到 R1 开始位置（33ms + 3ms）</p>
+<p>3、R1 的读取和 R0 一致 ，一直到 R9 也读完 ，此时已经读了 10次了 ，所以时间是 （33ms + 3ms）*10</p>
+<p>4、R10 的读取 到 R1 开始结束 也就是 再加 1个物理块 3ms 和 1个处理时间 3ms </p>
+<p>所以公式：（33ms + 3ms）* 10  + 6 =  366</p>
+<p>第二个空分析：</p>
+<p>1、可以存储优化也就是 不用按顺序存储，那么就可以隔一段进行存储，刚好避过读取时间和处理时间，也就是右下角的图的方式存储，处理情况就是需要跑两圈，第一圈处理 R0 到 R5 第二圈 R6 到 R10 ，也就是 33ms *2 = 66ms</p>
+<p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683614487573.jpg" alt="1683614487573"></p>
+<h2 id="1-11-总线"><a href="#1-11-总线" class="headerlink" title="1.11 总线"></a>1.11 总线</h2><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683615556744.jpg" alt="1683615556744"></p>
+<p>考察点 ：选择题</p>
+<h2 id="1-12-系统可靠性分析-串联系统与并联系统"><a href="#1-12-系统可靠性分析-串联系统与并联系统" class="headerlink" title="1.12 系统可靠性分析-串联系统与并联系统"></a>1.12 系统可靠性分析-串联系统与并联系统</h2><h3 id="1-12-1-串联系统与并联系统"><a href="#1-12-1-串联系统与并联系统" class="headerlink" title="1.12.1 串联系统与并联系统"></a>1.12.1 串联系统与并联系统</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683616062493.jpg" alt="1683616062493"></p>
+<p>分析：</p>
+<p>R 为可靠性</p>
+<p>1、串联：只要有一个系统失效就失效，所以总体可靠性为 R1 * R2 * R3 … = R ,失效率就是 1 - R</p>
+<p>2、并联：只有所有系统同时失效才算失效，所有先算失效率，再用 1- 失效率 = 可考虑， </p>
+<h3 id="1-12-2-串并联系统计算"><a href="#1-12-2-串并联系统计算" class="headerlink" title="1.12.2 串并联系统计算"></a>1.12.2 串并联系统计算</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683616414871.jpg" alt="1683616414871"></p>
+<p>分析：</p>
+<p>上面的一般不考。</p>
+<p>下面串联并联一起的 ，先看总体是串联 ，所以是把各个整体的可靠性算出来再相乘</p>
+<h2 id="1-13-差错控制"><a href="#1-13-差错控制" class="headerlink" title="1.13 差错控制"></a>1.13 差错控制</h2><h3 id="1-13-1-海明校验码"><a href="#1-13-1-海明校验码" class="headerlink" title="1.13.1 海明校验码"></a>1.13.1 海明校验码</h3><p><img src="/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1683618218749.jpg"></p>
+<ol>
+<li>确定校验码有多少位</li>
+</ol>
+<p>根据公式 ：2^r &gt;= 信息位数+r+1 </p>
+<p>​				   2^r &gt;= 4 + r + 1 </p>
+<p>得到：r = 3，所以校验位：2^2  ,2^1 , 2^0</p>
+<ol start="2">
+<li><p>信息位化为二进制，涉及到的次方数就是对应校验位的 异或 内容，可以算出对应校验位的值，再带入表格 ，可以得到海明码： 1010101 。</p>
+</li>
+<li><p>纠错：比如如果收到的信息是：1011101 ，则我们根据收到的信息算校验码：</p>
+</li>
+</ol>
+<p>r2 = I4 ^ I3 ^ I2 = 1^0^1 = 0</p>
+<p>r1 = I4 ^ I3 ^ I1 = 1^0^1 = 0</p>
+<p>r0 = I4 ^ I2 ^ I1 = 1^1^1 = 1</p>
+<p>计算的校验码：001 </p>
+<p>收到的校验码：101 </p>
+<p>校验码不同 ，则做异或 ： </p>
+<pre class="line-numbers language-none"><code class="language-none">0 0 1 
+^ ^ ^
+1 0 1
+ =
+100 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>得到100，也就是 100 位置上的值是错的，也就是第四位错了，做取反 ：1011101 -&gt; 1010101</p>
 
                 
             </div>
@@ -672,18 +722,17 @@ t3 = 0.95 * 1 + (1-0.95) * 1000
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/18/ji-suan-ji-zu-cheng-yu-ti-xi-jie-gou/">
+                <a href="/2023/05/09/cao-zuo-xi-tong-ji-ben-yuan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="计算机组成与体系结构">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2.操作系统基本原理">
                         
-                        <span class="card-title">计算机组成与体系结构</span>
+                        <span class="card-title">2.操作系统基本原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -693,22 +742,21 @@ t3 = 0.95 * 1 + (1-0.95) * 1000
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="post-category">
-                                    计算机组成与体系结构
+                            <a href="/categories/%E8%BD%AF%E8%80%83/" class="post-category">
+                                    软考
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -716,8 +764,8 @@ t3 = 0.95 * 1 + (1-0.95) * 1000
                         <span class="chip bg-color">软考</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">计算机组成与体系结构</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">操作系统基本原理</span>
                     </a>
                     
                 </div>
